@@ -1,7 +1,8 @@
 name: Keep Bot Running
 
-on:  
-  push:  
+on:
+  schedule:
+    - cron: "*/5 * * * *"  # اجرای خودکار هر 5 دقیقه
   workflow_dispatch:
 
 jobs:
@@ -20,5 +21,5 @@ jobs:
         run: |
           pip install -r requirements.txt || echo "No requirements file found"
 
-      - name: Run script
-        run: python main.py
+      - name: Run script with Keep Alive
+        run: nohup python main.py &
