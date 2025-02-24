@@ -1,0 +1,4 @@
+telethon
+requests
+pytz
+beautifulsoup4
