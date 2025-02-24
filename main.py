@@ -8,8 +8,27 @@ import os
 import time
 from math import ceil
 from bs4 import BeautifulSoup
+from flask import Flask
+from threading import Thread
 
+# ایجاد سرور Flask
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "I'm alive!"
+
+def run():
+    app.run(host='0.0.0.0', port=8080)
+
+# اجرای Flask در یک ترد جداگانه
+Thread(target=run).start()
+
+# ----------------
+# کد اصلی بات رو اینجا بنویس
+# ----------------
 # اطلاعات API تلگرام (حساب کاربری)
+
 api_id = 26499348
 api_hash = '0bb16692fda21e16c2f132ad57573709'
 phone = '+989960544616'
